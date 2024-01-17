@@ -18,26 +18,16 @@
           cy.get('#lastName').type('shrestha');
           cy.get('#gender').type('m');
 
-          cy.get('#isForeignBirth').click();
-          cy.get('#birthRegistrationNo').type('665');
-          cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20621109{enter}');
-          cy.get('#birthCountryId').click();
-          cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('america');
-          cy.wait(2000);
+          cy.get('#birthRegistrationNo').type('665236');
+          cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20631109{enter}');
+
+          cy.get('#localBody_address0').click();
           cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
-          cy.get('#birthCountryAddressNp').type('न्यु यर्क');
-          cy.get('#birthCountryAddress').type('new york');
-          cy.get('#localBody_address1').click();
-          cy.get('tbody > :nth-child(3) > :nth-child(2)').click();
-          cy.get(':nth-child(1) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
+          cy.wait(2000);
+          cy.get(':nth-child(5) > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
           cy.get('.select2-search__field').type('5{enter}');
 
-          // cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
-          // cy.wait(2000);
-          // cy.get(':nth-child(5) > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
-          // cy.get('.select2-search__field').type('5{enter}');
-
-          // cy.get('#sameAsPermanentAddress_address1').click();
+          cy.get('#sameAsPermanentAddress_address1').click();
 
           cy.get('#firstNameNp_0').type('प्रशान्त');
           cy.get('#firstName_0').type('prashant');
@@ -58,6 +48,31 @@
           cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
           cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
           cy.get('.select2-search__field').type('5{enter}');
+
+          cy.get('#isEmployeeFamily').click({force: true});
+
+          cy.get('#employeeFirstNameNp').type('अमर');
+          cy.get('#employeeLastNameNp').type('शाक्य');
+          cy.get('#employeeFirstName').type('amar');
+          cy.get('#employeeLastName').type('shakya');
+          cy.get('#sanketNo').type('6565');
+          cy.get('#empOffice').type('office');
+          cy.get('#positionId').select('राजपत्रांकित द्धितिय श्रेणी');
+          cy.get('#district_employeefamily').click();
+          cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
+          cy.wait(2000)
+          cy.get('tr.ng-star-inserted > :nth-child(4)').click();
+          cy.get('#localBody_employeefamily').click();
+          cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('tokha');
+          cy.wait(2000)
+          cy.get('tr.ng-star-inserted > :nth-child(3)').click();
+          cy.wait(2000)
+          cy.get('#select2-wardNumber_employeefamily-container').click();
+          cy.get('.select2-search__field').type('5{enter}');
+          cy.get(':nth-child(5) > .col-4 > .form-group > .formValidationDiv > .input-group > #officeName').click();
+          cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('police');
+          cy.get('tbody > :nth-child(2) > :nth-child(3)').click();
+          cy.get(':nth-child(5) > .col-8 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20701111{enter}');
 
           cy.get('#recommendFirstNameNp').type('श्याम');
           cy.get('#recommendLastNameNp').type('लामा');
