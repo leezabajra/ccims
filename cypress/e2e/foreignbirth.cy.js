@@ -5,7 +5,7 @@
         });
           
         it('login', () => {
-          // Fill in the login form with incorrect credentials
+          
           cy.get('.form-control').eq(0).type('mohan');
           cy.get('.form-control').eq(1).type('Test@123');
           cy.get('.btn').click();
@@ -31,13 +31,6 @@
           cy.get('tbody > :nth-child(3) > :nth-child(2)').click();
           cy.get(':nth-child(1) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
           cy.get('.select2-search__field').type('5{enter}');
-
-          // cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
-          // cy.wait(2000);
-          // cy.get(':nth-child(5) > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
-          // cy.get('.select2-search__field').type('5{enter}');
-
-          // cy.get('#sameAsPermanentAddress_address1').click();
 
           cy.get('#firstNameNp_0').type('प्रशान्त');
           cy.get('#firstName_0').type('prashant');
