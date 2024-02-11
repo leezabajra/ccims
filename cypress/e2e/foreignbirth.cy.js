@@ -12,15 +12,15 @@
           cy.wait(4000);
           cy.get(':nth-child(5) > .mastermenu-link').click();
           cy.get('#collapseExample_4 > :nth-child(1) > .submenu-link').click();
-          cy.get('#firstNameNp').type('राजिव');
-          cy.get('#lastNameNp').type('महर्जन');
-          cy.get('#firstName').type('rajiv');
+          cy.get('#firstNameNp').type('बिजिना');
+          cy.get('#lastNameNp').type('श्रेष्ठ');
+          cy.get('#firstName').type('bijina');
           cy.get('#lastName').type('shrestha');
-          cy.get('#gender').type('m');
+          cy.get('#gender').type('f');
 
           cy.get('#isForeignBirth').click();
           cy.get('#birthRegistrationNo').type('665');
-          cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20621109{enter}');
+          cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20631109{enter}');
           cy.get('#birthCountryId').click();
           cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('america');
           cy.wait(2000);
@@ -32,8 +32,8 @@
           cy.get(':nth-child(1) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
           cy.get('.select2-search__field').type('5{enter}');
 
-          cy.get('#firstNameNp_0').type('प्रशान्त');
-          cy.get('#firstName_0').type('prashant');
+          cy.get('#firstNameNp_0').type('सुदिप');
+          cy.get('#firstName_0').type('sudip');
           cy.wait(2000);
           cy.get('#citizenshipNo_0').type('86242');
           cy.get('#localBody_family0').click();
@@ -44,8 +44,8 @@
           
 
           cy.get('.nav > :nth-child(2)').click();
-          cy.get('#firstNameNp_1').type('निलिमा');
-          cy.get('#firstName_1').type('nilima');
+          cy.get('#firstNameNp_1').type('सिमा');
+          cy.get('#firstName_1').type('sima');
           cy.get('#citizenshipNo_1').type('26546');
           cy.get('#localBody_family1').click();
           cy.get('tbody > :nth-child(2) > :nth-child(2)').click();

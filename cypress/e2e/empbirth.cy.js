@@ -1,17 +1,20 @@
     
     describe('Login Test', () => {
         beforeEach(() => {
-          cy.visit('https://ccimsinternal.infodev.com.np/');
+          cy.visit('/');
         });
           
         it('login', () => {
-          // Fill in the login form with incorrect credentials
-          cy.get('.form-control').eq(0).type('mohan');
-          cy.get('.form-control').eq(1).type('Test@123');
+          cy.get('input[type="username"]').type('mohan');
+          cy.get('input[type="password"]').type('Test@123');
           cy.get('.btn').click();
-          cy.wait(4000);
-          cy.get(':nth-child(5) > .mastermenu-link').click();
+          cy.get('.ng-star-inserted').should('contain', 'ड्यासबोर्ड')
+          cy.contains('नयाँ नागरिकता').click({timeout: 4000})
           cy.get('#collapseExample_4 > :nth-child(1) > .submenu-link').click();
+
+
+
+          
           cy.get('#firstNameNp').type('राजिव');
           cy.get('#lastNameNp').type('महर्जन');
           cy.get('#firstName').type('rajiv');
@@ -53,6 +56,14 @@
           cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
           cy.get('.select2-search__field').type('5{enter}');
 
+
+          cy.get('#recommendFirstNameNp').type('श्याम');
+          cy.get('#recommendLastNameNp').type('लामा');
+          cy.get('.mb-2.mt-1 > .col-4 > .form-group > .formValidationDiv > .input-group > #officeName').click();
+          cy.get('tbody > :nth-child(1) > :nth-child(2)').click();
+          cy.pause()
+          cy.get('#copyDetailsFrom_father').click();
+
           cy.get('#isEmployeeFamily').click({force: true});
 
           cy.get('#employeeFirstNameNp').type('अमर');
@@ -61,6 +72,7 @@
           cy.get('#employeeLastName').type('shakya');
           cy.get('#sanketNo').type('6565');
           cy.get('#empOffice').type('office');
+
           cy.get('#positionId').select('राजपत्रांकित द्धितिय श्रेणी');
           cy.get('#district_employeefamily').click();
           cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
@@ -78,7 +90,7 @@
           cy.get('tbody > :nth-child(2) > :nth-child(3)').click();
           cy.get(':nth-child(5) > .col-8 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20701111{enter}');
 
-
+          cy.get('#positionId').select(' राजपत्रांकित प्रथम श्रेणी ');
 
 
           cy.get('#recommendFirstNameNp').type('श्याम');
