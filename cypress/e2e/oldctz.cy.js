@@ -18,7 +18,38 @@ describe('Login Test', () => {
       cy.get(':nth-child(3) > #citizenshiNumberNep > .formValidationDiv > #citizenshipNoNp').type(user.ctznonp);
       cy.get('#citizenshipIssuedDistrictName').click();
       cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.district);
-      cy.get('tr.ng-star-inserted > :nth-child(4)').click()
+      cy.wait(2000)
+      cy.get('tr.ng-star-inserted > :nth-child(4)').click();
+      cy.get('#citizenshipIssuedOfficeName').click();
+      cy.get('tr.ng-star-inserted > :nth-child(3)').click();
+      cy.wait(2000)
+      cy.get(':nth-child(3) > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type(user.issuedate+'{enter}');
+      cy.get('#firstNameNp').type(user.firstnamenp);
+      cy.get('#lastNameNp').type(user.lastnamenp);
+      cy.get('#firstName').type(user.firstname);
+      cy.get('#lastName').type(user.lastname);
+      cy.get('#gender').type(user.gender);
+      cy.get(':nth-child(1) > .col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type(user.dateofbirth+'{enter}');
+      cy.get('#formerAddress_address0').click();
+      cy.get('#district_address0').click();
+      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.district1);
+      cy.wait(2000)
+      cy.get('tr.ng-star-inserted > :nth-child(4)').click();
+      cy.get('#vdc_address0').click();
+      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type(user.vdc);
+      cy.wait(2000)
+      cy.get('tr.ng-star-inserted > :nth-child(3)').click();
+      cy.get(':nth-child(4) > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
+      cy.get('.select2-search__field').type(user.wardno+'{enter}')
+
+
+
+
+
+
+
+
+      
     });
 });
 });
