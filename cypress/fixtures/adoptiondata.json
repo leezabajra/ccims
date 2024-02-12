@@ -1,0 +1,32 @@
+[
+    {
+        "firstNameNp":"लीज़ा",
+        "lastNameNp":"बज्राचार्य",
+        "firstName":"Leeza",
+        "lastName":"bajracharya",
+        "gender":"f",
+        "religion":"h",
+        "birthcountry":"canada",
+        "countryselect":"tr.ng-star-inserted > :nth-child(3)",
+        "birthCountryAddressNp":"देल्ही",
+        "birthCountryAddress":"Delhi",
+        "district":"bhaktapur",
+        "localbody":"bhaktapur",
+        "localbodyselector":"tr.ng-star-inserted > :nth-child(3)",
+        "wardno":"2{enter}",
+        "toleStreet_address1":"इलम",
+        "firstNameNp_2":"बोम",
+        "lastNameNp_2":"लाल",
+        "firstName_2":"non",
+        "lastName_2":"tom",
+        "citizenshipNo_2":"1122222",
+        "spousedistrict":"jhapa",
+        "localbodyspouse":"Kamal",
+        "spouseward":"2{enter}",
+        "marriagedate":"20110908{enter}",
+        "livingsincedate":"20100909{enter}"
+
+
+    }
+    
+]
