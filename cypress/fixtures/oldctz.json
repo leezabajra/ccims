@@ -8,7 +8,28 @@
         "citizenshipType6":"जन्मको आधार",
         "ctzno":"4946",
         "ctznonp":"४९४६",
-        "district":"bhaktapur"
+        "district":"bhaktapur",
+        "issuedate":"20401010",
+        "firstnamenp":"राजाराम",
+        "lastnamenp":"मल्ल",
+        "firstname":"rajaram",
+        "lastname":"malla",
+        "gender":"m",
+        "dateofbirth":"20201111",
+        "district1":"bhaktapur",
+        "vdc":"bhaktapur",
+        "wardno":"5",
+        "localbody1":"bhaktapur",
+        "firstnamenp1":"प्रकाश",
+        "firstname1":"prakash",
+        "ctzno1":"856",
+        "firstname2":"ashmita",
+        "firstnamenp2":"अश्मिता",
+        "ctzno2":"9545",
+        "issuername":"नारायन शर्मा",
+        "designation":"प्र.अ"
+        
+
 
     }
 ]

@@ -14,16 +14,16 @@
 
 
 
-          
-          cy.get('#firstNameNp').type('राजिव');
+          cy.get('.lan-change-link').click()
+          cy.get('#firstNameNp').type('मनि');
           cy.get('#lastNameNp').type('महर्जन');
-          cy.get('#firstName').type('rajiv');
-          cy.get('#lastName').type('shrestha');
+          cy.get('#firstName').type('mani');
+          cy.get('#lastName').type('maharjan');
           cy.get('#gender').type('m');
 
           cy.get('#isForeignBirth').click();
           cy.get('#birthRegistrationNo').type('665');
-          cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20621109{enter}');
+          cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20621209{enter}');
           cy.get('#birthCountryId').click();
           cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('america');
           cy.wait(2000);
@@ -61,7 +61,6 @@
           cy.get('#recommendLastNameNp').type('लामा');
           cy.get('.mb-2.mt-1 > .col-4 > .form-group > .formValidationDiv > .input-group > #officeName').click();
           cy.get('tbody > :nth-child(1) > :nth-child(2)').click();
-          cy.pause()
           cy.get('#copyDetailsFrom_father').click();
 
           cy.get('#isEmployeeFamily').click({force: true});
@@ -72,7 +71,7 @@
           cy.get('#employeeLastName').type('shakya');
           cy.get('#sanketNo').type('6565');
           cy.get('#empOffice').type('office');
-
+          cy.wait(4000)
           cy.get('#positionId').select('राजपत्रांकित द्धितिय श्रेणी');
           cy.get('#district_employeefamily').click();
           cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
@@ -89,8 +88,8 @@
           cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('police');
           cy.get('tbody > :nth-child(2) > :nth-child(3)').click();
           cy.get(':nth-child(5) > .col-8 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20701111{enter}');
-
-          cy.get('#positionId').select(' राजपत्रांकित प्रथम श्रेणी ');
+          
+          
 
 
           cy.get('#recommendFirstNameNp').type('श्याम');
@@ -102,7 +101,19 @@
 
           cy.get('.btn-blue').click();
 
+        
+          cy.wait(2000)
+
+          // cy.get('.formValidationTooltip').scrollIntoView();
+          // cy.get('.formValidationTooltip').should('be.visible').and('have.text', 'यो क्षेत्र आवश्यक छ।');
+          cy.get('.h6').should('exist')
+
+
+
           cy.get('.px-4 > .btn').click();
+          // cy.get('.ng-trigger').should('exist').and('have text','डाटा सफलतापूर्वक सेव गरिएको छ')
+          cy.get('.ng-trigger',{timeout: 10000}).should('have.text','डाटा सफलतापूर्वक सेव गरिएको छ');
+
 
           
 
