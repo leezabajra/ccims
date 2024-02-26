@@ -86,7 +86,13 @@ describe('Login Test', () => {
         cy.get('#copyDetailsFrom_father').click();
         cy.get('.col-6 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20800711{enter}');
         cy.get('.citizenship__wrapper__buttons > .btn-blue').click();
-        cy.get('.px-4 > .btn').click();
+        cy.get('.btn-blue').should('exist').and('contain', 'आवेदन हेर्नुहोस्')
+        cy.get('.ng-star-inserted').should('exist').and('contain', 'रिसेट गर्नुहोस्')
+        cy.get('.btn-blue').click();
+        cy.get('.toast-message').should('include.text', ' डाटा सफलतापूर्वक सेव गरिएको छ ')
+        cy.get('.px-4 > .btn').click()
+        cy.get('.toast-message').should('include.text', 'डाटा सफलतापूर्वक ल्याइयो')
+        cy.get('h5.ng-star-inserted').should('include.text', 'दैनिक समग्र सूची')
 
 
 

@@ -14,14 +14,14 @@ describe('hereditary', () => {
 
 function operatorlogin() {
   cy.visit('https://ccimsinternal.infodev.com.np/');
-  cy.get('.form-control').eq(0).type('mohan');
-  cy.get('.form-control').eq(1).type('Test@123');
+  cy.get('.form-control').eq(0).type('rupa');
+  cy.get('.form-control').eq(1).type('User@123');
   cy.get('.btn').click();
   cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/dashboard')
   cy.wait(2000);
 }
 
-    it('Using Valid datas', () => {
+    it.only('Using Valid datas', () => {
         cy.fixture('hereditary')
         .its('data').then(user =>{
             user.forEach((user)=>{
@@ -165,7 +165,7 @@ function operatorlogin() {
        
       });
 
-      it('Approval of Hereditary', () => {
+      it.only('Approval of Hereditary', () => {
         approvallogin()
         cy.get('[title="वंशज"]').click()
         cy.get('.ic-eye-true').eq(0).click()

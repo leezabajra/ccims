@@ -157,7 +157,17 @@ describe('Login Test', () => {
       cy.wait(3000);
       cy.get('.header-background > .d-flex.ng-star-inserted > .btn-sm').click();
       cy.get('#copyReason').select('हराएको');
-      
+      cy.get('#firstNameNp_0').type('विजय');
+      cy.get('#lastNameNp_0').type('श्रेष्ठ')
+      cy.get('#firstName_0').type('bijay');
+      cy.get('#lastName_0').type('shrestha')
+      cy.wait(2000);
+      cy.get('#citizenshipNo_0').type('95623');
+      cy.get('#localBody_family0').click();
+      cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
+      cy.wait(2000);
+      cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
+      cy.get('.select2-search__field').type('5{enter}');
       cy.get(':nth-child(5) > .formcard__title > div.d-flex > .switch-wrapper > .switch').click();
       cy.get('#copyDetailsFrom_father').click();
       cy.pause();
@@ -178,7 +188,7 @@ describe('Login Test', () => {
         cy.wait(2000)
         cy.get(':nth-child(1) > :nth-child(12) > tb-action-btn > .dropdown > .dropdown-menu > .list > :nth-child(6) > .btn').should('exist').click();
         cy.get('h5.ng-star-inserted').should('exist').and('include.text','नागरिकताको प्रतिलिपि');
-      cy.get('.btn-base-primary').should('exist').and('include.text','पछाडि जानुहोस्');
+        cy.get('.btn-base-primary').should('exist').and('include.text','पछाडि जानुहोस्');
         cy.wait(3000);
         cy.get('.header-background > .d-flex.ng-star-inserted > .btn-sm').click();
         cy.wait(1000);

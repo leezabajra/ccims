@@ -86,8 +86,14 @@
         cy.get(':nth-child(2) > tb-search-field > .form-control-icon > .header-filter').type('रविन');
         cy.wait(2000)
         cy.get('tr.ng-star-inserted > :nth-child(2)').click();
+        cy.get('.btn-blue').should('exist').and('contain', 'आवेदन हेर्नुहोस्')
+        cy.get('.ng-star-inserted').should('exist').and('contain', 'रिसेट गर्नुहोस्')
         cy.get('.btn-blue').click();
-        cy.get('.px-4 > .btn').click();
+        cy.get('.toast-message').should('include.text', ' डाटा सफलतापूर्वक सेव गरिएको छ ')
+        cy.get('.px-4 > .btn').click()
+        cy.get('.toast-message').should('include.text', 'डाटा सफलतापूर्वक ल्याइयो')
+        cy.get('h5.ng-star-inserted').should('include.text', 'दैनिक समग्र सूची')
+        
 
         
 
