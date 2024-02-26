@@ -1,0 +1,61 @@
+{
+    "data": [    
+    {
+        "case":"Hereditary form fill up valid data",
+        "firstNameNp":"दिक्ष्या",
+        "lastNameNp":"महर्जन",
+        "firstName":"dikshya",
+        "lastName":"maharjan",
+        "gender":"m",
+        "birthRegistrationNo":"6615236",
+        "DOB":"20631212",
+        "firstNameNp_0":"दिपक",
+        "firstName_0":"dipak",
+        "citizenshipNo_0":"862422",
+        "firstNameNp_1":"निलिमा",
+        "firstName_1":"nilima",
+        "citizenshipNo_1":"265246",
+        "recommendFirstNameNp":"श्याम",
+        "recommendLastNameNp":"लामा"
+    },
+    {
+        "case":"Hereditary form fill up valid data",
+        "firstNameNp":"सलीना",
+        "lastNameNp":"महर्जन",
+        "firstName":"salina",
+        "lastName":"maharjan",
+        "gender":"m",
+        "birthRegistrationNo":"6615236",
+        "DOB":"20631212",
+        "firstNameNp_0":"दिपक",
+        "firstName_0":"dipak",
+        "citizenshipNo_0":"862422",
+        "firstNameNp_1":"निलिमा",
+        "firstName_1":"nilima",
+        "citizenshipNo_1":"265246",
+        "recommendFirstNameNp":"श्याम",
+        "recommendLastNameNp":"लामा"
+    }
+],
+    "data2":
+    [
+   
+    {
+        "case":"Hereditary form fill up invalid data(Less age)",
+        "firstNameNp":"मजश",
+        "lastNameNp":"महर्जन",
+        "firstName":"Samratl",
+        "lastName":"maharjans",
+        "gender":"m",
+        "birthRegistrationNo":"6615236",
+        "DOB":"20801212",
+        "firstNameNp_0":"दिपक",
+        "firstName_0":"dipak",
+        "citizenshipNo_0":"862422",
+        "firstNameNp_1":"निलिमा",
+        "firstName_1":"nilima",
+        "citizenshipNo_1":"265246",
+        "recommendFirstNameNp":"श्याम",
+        "recommendLastNameNp":"लामा"
+    }]
+}
