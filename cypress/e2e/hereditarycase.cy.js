@@ -3,10 +3,11 @@ describe('hereditary', () => {
 
   function approvallogin() {
     cy.visit('https://ccimsinternal.infodev.com.np/')
-    cy.get('input[type="username"]').type('rabin');
+    cy.get('input[type="username"]').type('leeza');
     cy.get('input[type="password"]').type('Test@123');
     cy.get('.btn').click()
     // cy.contains('बबरमहल').click()
+    cy.get('.active').click()
     cy.get('.ic-approval').click()
     cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/approvals');
     cy.get('h5').should('exist').should('contain', 'अनुमोदन')
@@ -51,22 +52,34 @@ function operatorlogin() {
         cy.get('#firstName_0').type(user.firstName_0);
         cy.wait(2000);
         cy.get('#citizenshipNo_0').type(user.citizenshipNo_0);
-        cy.get('#localBody_family0').click();
-        cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
+        cy.get('#district_family0').click();
+        cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.district1);
         cy.wait(2000);
+        cy.get('tr.ng-star-inserted > :nth-child(4)').click();
+        cy.get('#localBody_family0').click();
+        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type(user.localbody1);
+        cy.wait(2000);
+        cy.get('tr.ng-star-inserted > :nth-child(3)').click();
         cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
-        cy.get('.select2-search__field').type('5{enter}');
+        cy.get('.select2-search__field').type(user.wardno1+'{enter}');
    
    
         cy.get('.nav > :nth-child(2)').click();
         cy.get('#firstNameNp_1').type(user.firstNameNp_1);
         cy.get('#firstName_1').type(user.firstName_1);
         cy.get('#citizenshipNo_1').type(user.citizenshipNo_1);
+        cy.get('#district_family1').click()
+        cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.district2)
+        cy.wait(2000);
+        cy.get('tr.ng-star-inserted > :nth-child(4)').click();
         cy.get('#localBody_family1').click();
-        cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
+        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type(user.localbody2);
+        cy.wait(2000);
+        cy.get('tr.ng-star-inserted > :nth-child(3)').click()
         cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
-        cy.get('.select2-search__field').type('5{enter}');
+        cy.get('.select2-search__field').type(user.wardno2+'{enter}');
    
+        
         cy.get('#recommendFirstNameNp').type(user.recommendFirstNameNp);
         cy.get('#recommendLastNameNp').type(user.recommendLastNameNp);
         cy.get('.mb-2.mt-1 > .col-4 > .form-group > .formValidationDiv > .input-group > #officeName').click();

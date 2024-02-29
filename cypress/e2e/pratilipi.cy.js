@@ -6,8 +6,8 @@ describe('Login Test', () => {
     it.only('pratilipi for nochange', () => {
       
       
-      cy.get('.form-control').eq(0).type('mohan');
-      cy.get('.form-control').eq(1).type('Test@123');
+      cy.get('.form-control').eq(0).type('rupa');
+      cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
       cy.get(':nth-child(9) > .mastermenu-link').click();
       cy.get('.col-1 > .btn').click();

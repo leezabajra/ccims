@@ -6,18 +6,18 @@ describe('Login Test', () => {
     it('login', () => {
       
       
-      cy.get('.form-control').eq(0).type('mohan');
-      cy.get('.form-control').eq(1).type('Test@123');
+      cy.get('.form-control').eq(0).type('sharmila');
+      cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
       cy.wait(4000);
       cy.get(':nth-child(5) > .mastermenu-link').click();
       cy.get(':nth-child(4) > .submenu-link').click();
 
       
-        cy.get('#firstNameNp').type('लिसा');
-        cy.get('#lastNameNp').type('महर्जन');
-        cy.get('#firstName').type('lisa');
-        cy.get('#lastName').type('maharjan');
+        cy.get('#firstNameNp').type('रहीना');
+        cy.get('#lastNameNp').type('डंगोल');
+        cy.get('#firstName').type('raheena');
+        cy.get('#lastName').type('dangol');
        cy.get('#gender').type('f');
         cy.get('#religion').select('हिन्दु');
         cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20401111{enter}');
@@ -88,7 +88,8 @@ describe('Login Test', () => {
         cy.get('.citizenship__wrapper__buttons > .btn-blue').click();
         cy.get('.btn-blue').should('exist').and('contain', 'आवेदन हेर्नुहोस्')
         cy.get('.ng-star-inserted').should('exist').and('contain', 'रिसेट गर्नुहोस्')
-        cy.get('.btn-blue').click();
+        cy.wait(2000)
+        // cy.get('.btn-blue').click();
         cy.get('.toast-message').should('include.text', ' डाटा सफलतापूर्वक सेव गरिएको छ ')
         cy.get('.px-4 > .btn').click()
         cy.get('.toast-message').should('include.text', 'डाटा सफलतापूर्वक ल्याइयो')
