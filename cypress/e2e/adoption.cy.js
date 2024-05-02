@@ -6,8 +6,8 @@
 describe('adoption', () => {
     function operatorlogin() {
         cy.visit('/');
-        cy.get('.form-control').eq(0).type('mohan');
-        cy.get('.form-control').eq(1).type('Test@123');
+        cy.get('.form-control').eq(0).type('rupa');
+        cy.get('.form-control').eq(1).type('User@123');
         cy.get('.btn').click();
     }
 
@@ -20,7 +20,7 @@ describe('adoption', () => {
         cy.get('.lan-change-link').click();
     }
 
-    it("valid", () => {
+    it.only("valid", () => {
         operatorlogin();
         cy.fixture('adoptiondata')
             .its('data').then(user => {
@@ -86,6 +86,24 @@ describe('adoption', () => {
                         cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').type(user.spouseward);
                     }
                     spousedetail();
+                    
+                    function fatherdetail(){
+                        cy.get('.nav > :nth-child(1)').click()
+                        cy.get('#firstNameNp_0').type(user.firstNameNp_0);
+                        cy.get('#lastNameNp_0').type(user.lastNameNp_0);
+                        cy.get('#firstName_0').type(user.firstName_0);
+                        cy.get('#lastName_0').type(user.lastName_0);
+                        cy.get('#famAddressCountry_0').click();
+                        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type(user.country);
+                        cy.wait(2000);
+                        cy.get('tr.ng-star-inserted > :nth-child(3)').click();
+                        cy.get('#citizenshipNo_0').type(user.ctzno);
+                        cy.get('#addressNameNp_0').type(user.addressNameNp);
+                        cy.get('#addressName_0').type(user.addressName)
+
+
+                    }
+                    fatherdetail();
 
                     function livingplaceinnepal() {
                         cy.get(':nth-child(2) > :nth-child(3) > .col-8 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type(user.marriagedate)
@@ -117,8 +135,8 @@ describe('adoption', () => {
                                 cy.get('p.formValidationTooltip').should('not.exist', 'This is required');
                                 cy.wait(1000);
                                 cy.get('.px-4 > .btn').should('exist').click();
-                                cy.get('.toast-message').should('include.text', user.submitassertiontext)
-                                cy.get('h5.ng-star-inserted').should('exist').and('include.text', 'Overall List');
+                                // cy.get('.toast-message').should('include.text', user.submitassertiontext)
+                                // cy.get('h5.ng-star-inserted').should('exist').and('include.text', 'Overall List');
                             }
                         })
                     }

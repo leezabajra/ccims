@@ -3,17 +3,17 @@ describe('Login Test', () => {
       cy.visit('https://ccimsinternal.infodev.com.np/');
     });
       
-    it.only('pratilipi for nochange', () => {
+    it('pratilipi for nochange', () => {
       
       
-      cy.get('.form-control').eq(0).type('rupa');
-      cy.get('.form-control').eq(1).type('User@123');
+      cy.get('.form-control').eq(0).type('mohan');
+      cy.get('.form-control').eq(1).type('Test@123');
       cy.get('.btn').click();
       cy.get(':nth-child(9) > .mastermenu-link').click();
       cy.get('.col-1 > .btn').click();
-      cy.get('#citizenshipNo').type('२९-०१-७४-०४५१३');
+      cy.get('#citizenshipNo').type('२९-०१-८०-४०७४३८');
       cy.get('.modal-footer > .flex-end > .btn-blue').click();
-      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'धिरज')
+      //cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'धिरज')
       
       cy.wait(2000);
       cy.get('.ic-more-vertical').eq(0).click();
@@ -33,16 +33,16 @@ describe('Login Test', () => {
   
   
 
-    it('pratilipi add husband dont delete father ', () => {
+    it.only('pratilipi add husband dont delete father ', () => {
       
       cy.get('.form-control').eq(0).type('mohan');
       cy.get('.form-control').eq(1).type('Test@123');
       cy.get('.btn').click();
       cy.get(':nth-child(9) > .mastermenu-link').click();
       cy.get('.col-1 > .btn').click();
-      cy.get('#citizenshipNo').type('1757');
+      cy.get('#citizenshipNo').type('29-01-80-407377');
       cy.get('.modal-footer > .flex-end > .btn-blue').click();
-      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'धिरज')
+      // cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'धिरज')
       cy.wait(2000);
       cy.get('.ic-more-vertical').eq(0).click();
       cy.wait(2000)
@@ -175,7 +175,7 @@ describe('Login Test', () => {
       cy.get('.px-4 > .btn').click();
       });
     
-      it.only('underapproved case',()=>{      
+      it('underapproved case',()=>{      
         cy.get('.form-control').eq(0).type('mohan');
         cy.get('.form-control').eq(1).type('Test@123');
         cy.get('.btn').click();

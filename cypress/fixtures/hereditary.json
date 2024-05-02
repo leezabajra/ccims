@@ -3,28 +3,31 @@
             
     {
         "case": "Hereditary form fill up valid data",
-        "firstNameNp": "राम",
-        "lastNameNp": "काफ्ले",
-        "firstName": "ram",
-        "lastName": "kaafle",
-        "gender": "m",
-        "birthRegistrationNo": "8653291",
-        "DOB": "20521002",
-        "firstNameNp_0": "सिता",
-        "firstName_0": "sita",
-        "citizenshipNo_0": "123456",
-        "firstNameNp_1": "गोपाल",
-        "firstName_1": "gopal",
-        "district1":"lalitpur",
-        "localbody1":"lalitpur",
-        "wardno1":"5",
-        "district2":"lalitpur",
-        "localbody2":"lalitpur",
-        "wardno2":"3",
-        "citizenshipNo_1": "678901",
-        "recommendFirstNameNp": "कृष्णा",
-        "recommendLastNameNp": "राई"
-      }
+
+        
+        "firstNameNp": "प्रियंका",
+        "lastNameNp": "गुरुङ",
+        "firstName": "priyanka",
+        "lastName": "gurung",
+        "gender": "f",
+        "birthRegistrationNo": "2345678",
+        "DOB": "20630118",
+        "firstNameNp_0": "अनील",
+        "firstName_0": "aneel",
+        "citizenshipNo_0": "741852",
+        "firstNameNp_1": "अमित",
+        "firstName_1": "amit",
+        "district1":"banke",
+        "localbody1":"nepalgunj",
+        "wardno":"4",
+        "district2":"banke",
+        "localbody2":"nepalgunj",
+        "wardno2":"9",
+        "citizenshipNo_1": "258963",
+        "recommendFirstNameNp": "सुशिल",
+        "recommendLastNameNp": "थापा"
+     }
+    
     
 ],
     "data2":

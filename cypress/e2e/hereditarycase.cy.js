@@ -15,16 +15,16 @@ describe('hereditary', () => {
 
 function operatorlogin() {
   cy.visit('https://ccimsinternal.infodev.com.np/');
-  cy.get('.form-control').eq(0).type('rupa');
-  cy.get('.form-control').eq(1).type('User@123');
+  cy.get('.form-control').eq(0).type('nikhil1');
+  cy.get('.form-control').eq(1).type('Test@123');
   cy.get('.btn').click();
   cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/dashboard')
   cy.wait(2000);
 }
 
-    it.only('Using Valid datas', () => {
-        cy.fixture('hereditary')
-        .its('data').then(user =>{
+  it.only('Using Valid datas', () => {
+    cy.fixture('hereditary')
+      .its('data').then(user =>{
             user.forEach((user)=>{
               operatorlogin()
         cy.get(':nth-child(5) > .mastermenu-link').click();
@@ -36,9 +36,17 @@ function operatorlogin() {
         cy.get('#firstName').type(user.firstName);
         cy.get('#lastName').type(user.lastName);
         cy.get('#gender').type(user.gender);
-   
+       
         cy.get('#birthRegistrationNo').type(user.birthRegistrationNo);
         cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type(user.DOB + '{enter}');
+        // cy.get('#district_address0').click();
+        // cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.district0);
+        // cy.wait(2000)
+        // cy.get('tr.ng-star-inserted > :nth-child(4)').click();
+        // cy.get('#localBody_address0').click();
+        // cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type(user.localbody0);
+        // cy.wait(2000);
+        // cy.get('tr.ng-star-inserted > :nth-child(3)').click();
    
         cy.get('#localBody_address0').click();
         cy.get('tbody > :nth-child(2) > :nth-child(3)').click();
@@ -84,7 +92,9 @@ function operatorlogin() {
         cy.get('#recommendLastNameNp').type(user.recommendLastNameNp);
         cy.get('.mb-2.mt-1 > .col-4 > .form-group > .formValidationDiv > .input-group > #officeName').click();
         cy.get('tbody > :nth-child(1) > :nth-child(2)').click();
-   
+        
+
+      
         cy.get('#copyDetailsFrom_father').click();
         cy.get('.btn-blue').should('exist').and('contain', 'आवेदन हेर्नुहोस्')
         cy.get('.ng-star-inserted').should('exist').and('contain', 'रिसेट गर्नुहोस्')
@@ -178,7 +188,7 @@ function operatorlogin() {
        
       });
 
-      it.only('Approval of Hereditary', () => {
+      it('Approval of Hereditary', () => {
         approvallogin()
         cy.get('[title="वंशज"]').click()
         cy.get('.ic-eye-true').eq(0).click()
@@ -209,4 +219,14 @@ function operatorlogin() {
       cy.get('.btn-outline-gray').should('exist').and('include.text', 'रद्द गर्नुहोस्');
       cy.get('#toast-container').should('exist').and('include.text', 'आवेदन सफलतापूर्वक अस्वीकृत गरिएको छ');
   });
+  
+  it('Print' , () => {
+    operatorlogin();
+    cy.get(':nth-child(3) > .mastermenu-link').click();
+    cy.get('.ic-more-vertical').click();
+    cy.get('.list > :nth-child(2) > .btn').click();
+    cy.get('.print-preview-wrapper-front > .w-100 > div > .btn').click();
+    cy.wait(5000);
+    cy.get('.print-preview-wrapper-back > .w-100 > div > .btn').click();
+  })
 });

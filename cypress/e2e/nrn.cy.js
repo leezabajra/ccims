@@ -6,27 +6,27 @@ describe('Login Test', () => {
     it('login', () => {
       
       
-      cy.get('.form-control').eq(0).type('sharmila');
-      cy.get('.form-control').eq(1).type('User@123');
+      cy.get('.form-control').eq(0).type('aman-operator');
+      cy.get('.form-control').eq(1).type('Test@123');
       cy.get('.btn').click();
       cy.wait(4000);
       cy.get(':nth-child(5) > .mastermenu-link').click();
       cy.get(':nth-child(4) > .submenu-link').click();
 
       
-        cy.get('#firstNameNp').type('रहीना');
-        cy.get('#lastNameNp').type('डंगोल');
-        cy.get('#firstName').type('raheena');
-        cy.get('#lastName').type('dangol');
-       cy.get('#gender').type('f');
+        cy.get('#firstNameNp').type('रुपेश');
+        cy.get('#lastNameNp').type('प्रधान');
+        cy.get('#firstName').type('rupesh');
+        cy.get('#lastName').type('pradhan');
+       cy.get('#gender').type('m');
         cy.get('#religion').select('हिन्दु');
         cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20401111{enter}');
         cy.get('#district_address0').click();
-        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('ललितपुर');
+        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('काठमाडौँ');
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(3)').click({force:true});
         cy.get('#localBody_address0').click();
-        cy.get(':nth-child(2) > tb-search-field > .form-control-icon > .header-filter').type('गोदावरी');
+        cy.get(':nth-child(2) > tb-search-field > .form-control-icon > .header-filter').type('काठ');
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(2)').click();
         cy.get('app-address-module.ng-star-inserted > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
@@ -49,15 +49,15 @@ describe('Login Test', () => {
         cy.get('#citizenshipNo_0').type('3424');
         cy.get('#citizenshipType_0').select('वंशज');
         cy.get('#nrnIssuedDistrictIdentifyBtn > .ic-search').click();
-        cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('lalitpur');
+        cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
         cy.wait(2000)
         cy.get('tr.ng-star-inserted > :nth-child(4)').click();
         cy.get('#district_family0').click();
-        cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('lalitpur');
+        cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(4) > .ng-star-inserted').click();
         cy.get('#localBody_family0').click();
-        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('lalitpur');
+        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(3) > .ng-star-inserted').click();
         cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();

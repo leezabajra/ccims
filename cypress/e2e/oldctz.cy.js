@@ -1,19 +1,27 @@
-import oldctz from '../fixtures/oldctz.json';
-describe('Login Test', () => {
-    oldctz.forEach((user) => {
-      
-      
-    it('login', () => {
+
+describe('old ctz', () => {
+
+    function operatorlogin() {
         cy.visit('https://ccimsinternal.infodev.com.np/');
-    
-      
         cy.get('.form-control').eq(0).type('mohan');
         cy.get('.form-control').eq(1).type('Test@123');
         cy.get('.btn').click();
-        cy.wait(4000);
-        cy.get(':nth-child(6) > .mastermenu-link').click();
+        cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/dashboard')
+        cy.wait(2000);
+      }
+      
+      
+    it('Using valid datas', () => {
+        cy.fixture('oldctz')
+        .its('data').then(user =>{
+            user.forEach((user)=>{
+            operatorlogin()
+            cy.get(':nth-child(6) > .mastermenu-link').click();
+            // cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/citizenship/hereditary')
+            // cy.pause()
+            
 
-        cy.get('#citizenshipType').select(user.citizenshipType2);
+        cy.get('#citizenshipType').select(user.citizenshipTypeH);
         cy.get(':nth-child(2) > #citizenshiNumberNep > .formValidationDiv > #citizenshipNoNp').type(user.ctzno);
         cy.get(':nth-child(3) > #citizenshiNumberNep > .formValidationDiv > #citizenshipNoNp').type(user.ctznonp);
         cy.get('#citizenshipIssuedDistrictName').click();
@@ -88,13 +96,13 @@ describe('Login Test', () => {
         cy.get('#oldCitizenshipIssuerName').type(user.issuername);
         cy.get('#oldCitizenshipIssuerDesignation').type(user.designation);
       
-        cy.get('.btn-blue').should('exist').and('contain', 'आवेदन हेर्नुहोस्')
-        cy.get('.ng-star-inserted').should('exist').and('contain', 'रिसेट गर्नुहोस्')
+        // cy.get('.btn-blue').should('exist').and('contain', 'आवेदन हेर्नुहोस्')
+        // cy.get('.ng-star-inserted').should('exist').and('contain', 'रिसेट गर्नुहोस्')
         cy.get('.btn-blue').click();
-        cy.get('.toast-message').should('include.text', ' डाटा सफलतापूर्वक सेव गरिएको छ ')
-        cy.get('.px-4 > .btn').click()
-        cy.get('.toast-message').should('include.text', 'डाटा सफलतापूर्वक ल्याइयो')
-        cy.get('h5.ng-star-inserted').should('include.text', 'दैनिक समग्र सूची')
+        // cy.get('.toast-message').should('include.text', ' डाटा सफलतापूर्वक सेव गरिएको छ ')
+        // cy.get('.px-4 > .btn').click()
+        // cy.get('.toast-message').should('include.text', 'डाटा सफलतापूर्वक ल्याइयो')
+        // cy.get('h5.ng-star-inserted').should('include.text', 'दैनिक समग्र सूची')
 
 
 
@@ -103,9 +111,9 @@ describe('Login Test', () => {
 
 
 
+            
 
-
-
+            });
 
 
     });

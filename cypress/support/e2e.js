@@ -18,3 +18,30 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+// ESM
+
+
+// CJS
+
+
+import  '@faker-js/faker';
+
+const { faker } = require('@faker-js/faker');
+function createRandomUser(){
+    return {
+      userId: faker.string.uuid(),
+      username: faker.internet.userName(),
+      email: faker.internet.email(),
+      avatar: faker.image.avatar(),
+      password: faker.internet.password(),
+      birthdate: faker.date.past(),
+      registeredAt: faker.date.past(),
+    };
+  }
+  
+  const USERS = Array.from({ length: 5 }, createRandomUser);
+  
+  module.exports = {
+    createRandomUser,
+    USERS
+  };
