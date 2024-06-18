@@ -1,11 +1,11 @@
 
-import { faker } from '@faker-js/faker/locale/en';
+import { faker } from '@faker-js/faker/locale/ne';
 
     describe('Login Test', () => {
                 
       function operatorlogin() {
         cy.visit('https://ccimsinternal.infodev.com.np/');
-        cy.get('.form-control').eq(0).type('bkings');
+        cy.get('.form-control').eq(0).type('sharmila');
         cy.get('.form-control').eq(1).type('Test@123');
         cy.get('.btn').click();
         // cy.get('.active').click()
