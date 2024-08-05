@@ -3,8 +3,8 @@ describe('old ctz', () => {
 
     function operatorlogin() {
         cy.visit('https://ccimsinternal.infodev.com.np/');
-        cy.get('.form-control').eq(0).type('mohan');
-        cy.get('.form-control').eq(1).type('Test@123');
+        cy.get('.form-control').eq(0).type('sharmila');
+        cy.get('.form-control').eq(1).type('User@123');
         cy.get('.btn').click();
         cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/dashboard')
         cy.wait(2000);
@@ -29,7 +29,7 @@ describe('old ctz', () => {
         cy.wait(2000)
         cy.get('tr.ng-star-inserted > :nth-child(4)').click();
         cy.get('#citizenshipIssuedOfficeName').click();
-        cy.get('tr.ng-star-inserted > :nth-child(3)').click();
+        cy.get('tbody > :nth-child(1) > :nth-child(3) > .ng-star-inserted').click();
         cy.wait(2000)
         cy.get(':nth-child(3) > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type(user.issuedate+'{enter}');
         cy.get('#firstNameNp').type(user.firstnamenp);

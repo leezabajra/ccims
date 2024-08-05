@@ -2,7 +2,7 @@
     describe('Login Test', () => {
       function operatorlogin() {
         cy.visit('https://ccimsinternal.infodev.com.np/');
-        cy.get('.form-control').eq(0).type('rupa');
+        cy.get('.form-control').eq(0).type('sharmila');
         cy.get('.form-control').eq(1).type('User@123');
         cy.get('.btn').click();
         cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/dashboard')

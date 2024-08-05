@@ -2,7 +2,7 @@
     describe('Login Test', () => {
       function operatorlogin() {
         cy.visit('https://ccimsinternal.infodev.com.np/');
-        cy.get('.form-control').eq(0).type('rupa');
+        cy.get('.form-control').eq(0).type('sharmila');
         cy.get('.form-control').eq(1).type('User@123');
         cy.get('.btn').click();
         cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/dashboard')
@@ -44,7 +44,7 @@
           cy.wait(2000);
           cy.get('#citizenshipNo_0').type(user.citizenshipNo_0);
           cy.get('#district_family0').click();
-        cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.district1);
+          cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.district1);
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(4)').click();
         cy.get('#localBody_family0').click();
@@ -82,18 +82,20 @@
           cy.wait(4000)
           cy.get('#positionId').select('राजपत्रांकित द्धितिय श्रेणी');
           cy.get('#district_employeefamily').click();
-          cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.district3);
+          cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.district1);
           cy.wait(2000)
           cy.get('tr.ng-star-inserted > :nth-child(4)').click();
           cy.get('#localBody_employeefamily').click();
-          cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type(user.localbody3);
+          cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type(user.localbody1);
           cy.wait(2000)
           cy.get('tr.ng-star-inserted > :nth-child(3)').click();
           cy.wait(2000)
           cy.get('#select2-wardNumber_employeefamily-container').click();
-          cy.get('.select2-search__field').type(wardno3+'{enter}');
+          cy.get('.select2-search__field').type(user.wardno3+'{enter}');
           cy.get(':nth-child(5) > .col-4 > .form-group > .formValidationDiv > .input-group > #officeName').click();
+          cy.wait(2000)
           cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('police');
+          cy.wait(2000)
           cy.get('tbody > :nth-child(2) > :nth-child(3)').click();
           cy.get(':nth-child(5) > .col-8 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type(user.joindate+'{enter}');
           
@@ -114,7 +116,7 @@
           cy.get('.formValidationTooltip').should('not exist', 'यो क्षेत्र आवश्यक छ।');
     
     
-          // cy.get('.px-4 > .btn').click();
+          cy.get('.px-4 > .btn').click();
           cy.wait(2000)
           cy.get('.mb-3').should('exist').and('contain', ' प्रिन्ट')
           cy.get('.px-4 > .btn').click()

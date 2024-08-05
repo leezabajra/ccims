@@ -6,12 +6,12 @@ describe('Login Test', () => {
     it('login', () => {
       
       
-      cy.get('.form-control').eq(0).type('aman-operator');
-      cy.get('.form-control').eq(1).type('Test@123');
+      cy.get('.form-control').eq(0).type('sharmila');
+      cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
       cy.wait(4000);
       cy.get(':nth-child(5) > .mastermenu-link').click();
-      cy.get(':nth-child(4) > .submenu-link').click();
+      cy.get(':nth-child(3) > .submenu-link').click();
 
       
         cy.get('#firstNameNp').type('रुपेश');

@@ -1,12 +1,19 @@
 
 
-///<reference types = 'cypress'/>
+//<reference types = 'cypress'/>
 // import adoptiondata from "../fixtures/adoptiondata.json"
+// import { faker } from '@faker-js/faker';
+import {faker, fakerEN} from "@faker-js/faker"
+import { ne, fakerNE} from '@faker-js/faker';
+
+const fakerNEP = fakerNE
+const fakerENG = fakerEN
+
 
 describe('adoption', () => {
     function operatorlogin() {
         cy.visit('/');
-        cy.get('.form-control').eq(0).type('rupa');
+        cy.get('.form-control').eq(0).type('sharmila');
         cy.get('.form-control').eq(1).type('User@123');
         cy.get('.btn').click();
     }
@@ -35,10 +42,19 @@ describe('adoption', () => {
                     adoption();
 
                     function indivdetail() {
-                        cy.get('#firstNameNp').type(user.firstNameNp);
-                        cy.get('#lastNameNp').type(user.lastNameNp)
-                        cy.get('#firstName').type(user.firstName);
-                        cy.get('#lastName').type(user.lastName);
+                        
+        // locale = 'en';
+        const englishFirstName = fakerENG.person.firstName();
+        const englishLastName = fakerENG.person.lastName();
+
+        // Set locale to Nepali
+        // locale = 'ne';
+        
+
+                        cy.get('#firstNameNp').type(englishFirstName);
+                        cy.get('#lastNameNp').type(englishLastName);
+                        cy.get('#firstName').type(englishFirstName);
+                        cy.get('#lastName').type(englishLastName);
                         cy.get('#gender').type(user.gender);
                         cy.get('#religion').type(user.religion);
                     }
@@ -70,10 +86,15 @@ describe('adoption', () => {
                     birthdetail();
 
                     function spousedetail() {
-                        cy.get('#firstNameNp_2').type(user.firstNameNp_2);
-                        cy.get('#lastNameNp_2').type(user.lastNameNp_2);
-                        cy.get('#firstName_2').type(user.firstName_2);
-                        cy.get('#lastName_2').type(user.lastName_2);
+                        const gender = 'male';
+
+                        const nepaliFirstName = fakerNEP.person.firstName(gender);
+                        const nepaliLastName = fakerNEP.person.lastName();
+
+                        cy.get('#firstNameNp_2').type(nepaliFirstName);
+                        cy.get('#lastNameNp_2').type(nepaliLastName);
+                        cy.get('#firstName_2').type(nepaliFirstName);
+                        cy.get('#lastName_2').type(nepaliLastName);
                         cy.get('#citizenshipNo_2').type(user.citizenshipNo_2);
                         cy.get('#district_family2').click();
                         cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type(user.spousedistrict);
@@ -88,11 +109,16 @@ describe('adoption', () => {
                     spousedetail();
                     
                     function fatherdetail(){
+                        const gender = 'male';
+
+                        const englishFirstName = fakerENG.person.firstName();
+                        const englishLastName = fakerENG.person.lastName();
+                        
                         cy.get('.nav > :nth-child(1)').click()
-                        cy.get('#firstNameNp_0').type(user.firstNameNp_0);
-                        cy.get('#lastNameNp_0').type(user.lastNameNp_0);
-                        cy.get('#firstName_0').type(user.firstName_0);
-                        cy.get('#lastName_0').type(user.lastName_0);
+                        cy.get('#firstNameNp_0').type(englishFirstName);
+                        cy.get('#lastNameNp_0').type(englishLastName);
+                        cy.get('#firstName_0').type(englishFirstName);
+                        cy.get('#lastName_0').type(englishLastName);
                         cy.get('#famAddressCountry_0').click();
                         cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type(user.country);
                         cy.wait(2000);

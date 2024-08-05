@@ -7,7 +7,7 @@ import bybirth from '../fixtures/bybirth.json';
           
           cy.visit('https://ccimsinternal.infodev.com.np/');
           cy.get('.form-control').eq(0).type('mohan');
-          cy.get('.form-control').eq(1).type('Test@123');
+          cy.get('.form-control').eq(1).type('User@123');
           cy.get('.btn').click();
           cy.wait(4000);
           cy.get(':nth-child(5) > .mastermenu-link').click();
@@ -20,7 +20,7 @@ import bybirth from '../fixtures/bybirth.json';
           cy.get('#gender').type(user.gender);
 
           cy.get('#birthRegistrationNo').type(user.birthRegistrationNo);
-          cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type(DOB+'{enter}');
+          cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type(user.DOB+'{enter}');
           
           cy.get('#district_address0').click();
           cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('bhaktapur');
@@ -54,7 +54,7 @@ import bybirth from '../fixtures/bybirth.json';
           cy.get('#localBody_family1').click();
           cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
           cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
-          cy.get('.select2-search__field').type(wardno +'{enter}');
+          cy.get('.select2-search__field').type(user.wardno +'{enter}');
 
           cy.get('#recommendFirstNameNp').type(user.recommendFirstNameNp);
           cy.get('#recommendLastNameNp').type(user.recommendLastNameNp);
@@ -63,10 +63,16 @@ import bybirth from '../fixtures/bybirth.json';
 
          
           cy.get('#copyDetailsFrom_father').click();
+          cy.get('#citizenshipIssuedDistrict').click()
+          cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('bhaktapur');
+          cy.wait(2000);
+          cy.get('tr.ng-star-inserted > :nth-child(4)').click()
+
           cy.get('#reviewerName').click();
           cy.get(':nth-child(2) > tb-search-field > .form-control-icon > .header-filter').type('रविन');
           cy.wait(2000)
           cy.get('tr.ng-star-inserted > :nth-child(2)').click();
+          
           cy.get('#approverName').click();
           cy.get(':nth-child(2) > tb-search-field > .form-control-icon > .header-filter').type('रविन');
           cy.wait(2000)

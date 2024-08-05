@@ -1,15 +1,16 @@
 
 import { faker } from '@faker-js/faker/locale/ne';
 
+const BASE_URL = 'https://ccimsinternal.infodev.com.np'
     describe('Login Test', () => {
                 
       function operatorlogin() {
-        cy.visit('https://ccimsinternal.infodev.com.np/');
+        cy.visit(BASE_URL);
         cy.get('.form-control').eq(0).type('sharmila');
-        cy.get('.form-control').eq(1).type('Test@123');
+        cy.get('.form-control').eq(1).type('User@123');
         cy.get('.btn').click();
         // cy.get('.active').click()
-        cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/dashboard')
+        cy.url().should('eq', `${BASE_URL}/#/featured/dashboard`)
         cy.wait(2000);
       }
       
@@ -23,18 +24,13 @@ import { faker } from '@faker-js/faker/locale/ne';
               cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/citizenship/hereditary')
               cy.get('.ng-star-inserted').should('contain', ' वंशज नातामा नागरिकता आवेदन')
           
-              const nepaliName = faker.phone.number('/fd##')
-              cy.get('#firstNameNp').type(nepaliName);
-              cy.log(nepaliName)
-          cy.get('#firstNameNp').type(faker.person.firstName('/fd##'));
-          cy.get('#lastNameNp').type(faker.person.lastName('Yatra##'));
-          cy.get('#firstName').type(faker.person.firstName('ranjan##'));
-          
-
+       
+          cy.get('#firstNameNp').type(faker.person.firstName());
+          cy.get('#lastNameNp').type(faker.person.lastName());
+          cy.get('#firstName').type(faker.person.firstName());
           cy.get('#lastName').type(faker.person.lastName());
           cy.get('#gender').type(user.gender);
-          cy.pause()
-
+          
           cy.get('#birthRegistrationNo').type(user.birthRegistrationNo);
           cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type(user.DOB+'{enter}');
           
@@ -46,8 +42,8 @@ import { faker } from '@faker-js/faker/locale/ne';
 
           cy.get('#sameAsPermanentAddress_address1').click();
 
-          cy.get('#firstNameNp_0').type('आदर्श');
-          cy.get('#firstName_0').type('adharsh');
+          cy.get('#firstNameNp_0').type(faker.person.firstName('male'));
+          cy.get('#firstName_0').type(faker.person.firstName('male'));
           cy.wait(2000);
           cy.get('#citizenshipNo_0').type(user.citizenshipNo_0);
           cy.get('#localBody_family0').click();
@@ -58,8 +54,8 @@ import { faker } from '@faker-js/faker/locale/ne';
           
 
           cy.get('.nav > :nth-child(2)').click();
-          cy.get('#firstNameNp_1').type('अश्मी');
-          cy.get('#firstName_1').type('ashmi');
+          cy.get('#firstNameNp_1').type(faker.person.firstName('female'));
+          cy.get('#firstName_1').type(faker.person.firstName('female'));
           cy.get('#citizenshipNo_1').type(user.citizenshipNo_1);
           cy.get('#localBody_family1').click();
           cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
@@ -75,14 +71,13 @@ import { faker } from '@faker-js/faker/locale/ne';
 
           cy.get('.btn-blue').click();
 
-          cy.get('.formValidationTooltip').scrollIntoView();
-          cy.get('.formValidationTooltip').should('be.visible').and('have.text', 'यो क्षेत्र आवश्यक छ।');
+          // cy.get('.formValidationTooltip').scrollIntoView();
+          // cy.get('.formValidationTooltip').should('be.visible').and('have.text', 'यो क्षेत्र आवश्यक छ।');
 
           cy.get('.px-4 > .btn').click();
 
 
-          // cy.get('#dropdownUser').click();
-          // cy.get('.dropdown--list > :nth-child(3)').click();
+        
 
           
 

@@ -9,11 +9,17 @@ describe('Login Test', () => {
       cy.get('.form-control').eq(0).type('sharmila');
       cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
-      cy.get(':nth-child(10) > .mastermenu-link').click();
+      cy.wait(2000)
+      cy.get(':nth-child(7) > .mastermenu-link').click();
       cy.get('.col-1 > .btn').click();
-      cy.get('#citizenshipNo').type('३४५');
+      cy.get('#citizenshipNo').type('१६८६४');
+      cy.get('#issueDistrictId').click();
+      cy.wait(3000)
+      cy.get('input.header-filter[placeholder="खोज्नुहोस्"]').eq(6).click().type('jhapa',{force:true})
+      cy.get('.ng-star-inserted').contains("Jhapa").click()
+
       cy.get('.modal-footer > .flex-end > .btn-blue').click();
-      //cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'धिरज')
+      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'टंक')
       
       cy.wait(2000);
       cy.get('.ic-more-vertical').eq(0).click();

@@ -2,7 +2,7 @@
     describe('Foreign birth Test', () => {
       function operatorlogin() {
         cy.visit('https://ccimsinternal.infodev.com.np/');
-        cy.get('.form-control').eq(0).type('rupa');
+        cy.get('.form-control').eq(0).type('sharmila');
         cy.get('.form-control').eq(1).type('User@123');
         cy.get('.btn').click();
         cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/dashboard')
@@ -78,7 +78,7 @@
           cy.get('.formValidationTooltip').should('not exist', 'यो क्षेत्र आवश्यक छ।');
     
     
-          // cy.get('.px-4 > .btn').click();
+          cy.get('.px-4 > .btn').click();
           cy.wait(2000)
           cy.get('.mb-3').should('exist').and('contain', ' प्रिन्ट')
           cy.get('.px-4 > .btn').click()
