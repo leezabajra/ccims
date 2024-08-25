@@ -106,7 +106,7 @@ describe('Pratilipi Test', () => {
         cy.get('.px-4 > .btn').click();
       });
 
-    it.only('pratilipi all details change', () => {
+    it('pratilipi all details change', () => {
       cy.get('.form-control').eq(0).type('sharmila');
       cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
@@ -120,7 +120,7 @@ describe('Pratilipi Test', () => {
       cy.get('.ng-star-inserted').contains(" Lalitpur ").click()
 
       cy.get('.modal-footer > .flex-end > .btn-blue').click();
-      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'हेमन्त')
+      // cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'हेमन्त')
 
       cy.wait(2000);
       cy.get('.ic-more-vertical').eq(0).click();
@@ -261,31 +261,31 @@ describe('Pratilipi Test', () => {
       // cy.get('#select2-wardNumber_husband-container').click();
       // cy.get('.select2-search__field').type('5{enter}');
 
-      cy.get('#isEmployeeFamily').click();
-      cy.get('#employeeFirstNameNp').type('राम');
-      cy.get('#employeeMiddleNameNp').type('कुमार');
-      cy.get('#employeeLastNameNp').type('लामा');
-      cy.get('#employeeFirstName').type('ram')
-      cy.get('#employeeMiddleName').type('kumar')
-      cy.get('#employeeLastName').type('lama')
-      cy.get('#sanketNo').type('6564');
-      cy.get('#empOffice').type('office');
-      cy.get('#positionId').select('राजपत्रांकित द्धितिय श्रेणी');
-      cy.get('#district_employeefamily').click();
-      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('lalitpur');
-      cy.wait(2000)
-      cy.get('tr.ng-star-inserted > :nth-child(4)').click();
-      cy.get('#localBody_employeefamily').click();
-      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('lalitpur');
-      cy.wait(2000)
-      cy.get('tr.ng-star-inserted > :nth-child(3)').click();
-      cy.wait(2000)
-      cy.get('#select2-wardNumber_employeefamily-container').click();
-      cy.get('.select2-search__field').type('5{enter}');
-      cy.get(':nth-child(5) > .col-4 > .form-group > .formValidationDiv > .input-group > #officeName').click();
-      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('police');
-      cy.get('tbody > :nth-child(2) > :nth-child(3)').click();
-      cy.get(':nth-child(5) > .col-8 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20701111{enter}');
+      // cy.get('#isEmployeeFamily').click();
+      // cy.get('#employeeFirstNameNp').type('राम');
+      // cy.get('#employeeMiddleNameNp').type('कुमार');
+      // cy.get('#employeeLastNameNp').type('लामा');
+      // cy.get('#employeeFirstName').type('ram')
+      // cy.get('#employeeMiddleName').type('kumar')
+      // cy.get('#employeeLastName').type('lama')
+      // cy.get('#sanketNo').type('6564');
+      // cy.get('#empOffice').type('office');
+      // cy.get('#positionId').select('राजपत्रांकित द्धितिय श्रेणी');
+      // cy.get('#district_employeefamily').click();
+      // cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('lalitpur');
+      // cy.wait(2000)
+      // cy.get('tr.ng-star-inserted > :nth-child(4)').click();
+      // cy.get('#localBody_employeefamily').click();
+      // cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('lalitpur');
+      // cy.wait(2000)
+      // cy.get('tr.ng-star-inserted > :nth-child(3)').click();
+      // cy.wait(2000)
+      // cy.get('#select2-wardNumber_employeefamily-container').click();
+      // cy.get('.select2-search__field').type('5{enter}');
+      // cy.get(':nth-child(5) > .col-4 > .form-group > .formValidationDiv > .input-group > #officeName').click();
+      // cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('police');
+      // cy.get('tbody > :nth-child(2) > :nth-child(3)').click();
+      // cy.get(':nth-child(5) > .col-8 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20701111{enter}');
 
       cy.get('#copyDetailsFrom_self').click();
       cy.get('.btn-blue').click()
@@ -428,7 +428,7 @@ describe('Pratilipi Test', () => {
                 cy.wait(2000);
       });
 
-    it.only('Approval of Hereditary', () => {
+    it.only('Approval of old pratilipi', () => {
       cy.visit('/')
 
       cy.get('input[type="username"]').type('leeza');

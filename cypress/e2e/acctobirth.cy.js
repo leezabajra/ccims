@@ -81,8 +81,6 @@ import acctobirth from '../fixtures/acctobirth.json';
           cy.get('.px-4 > .btn').click();
 
 
-          // cy.get('#dropdownUser').click();
-          // cy.get('.dropdown--list > :nth-child(3)').click();
 
           
 
