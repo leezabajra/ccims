@@ -1,3 +1,6 @@
+import { faker } from '@faker-js/faker/locale/ne';
+
+
 describe('Login Test', () => {
     beforeEach(() => {
       cy.visit('https://ccimsinternal.infodev.com.np/');
@@ -6,32 +9,36 @@ describe('Login Test', () => {
     it('login', () => {
       
       
-      cy.get('.form-control').eq(0).type('sharmila');
+      cy.get('.form-control').eq(0).type('shashi@yopmail.com');
       cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
       cy.wait(4000);
+     cy.get('.active > .fs-5').click()
       cy.get(':nth-child(5) > .mastermenu-link').click();
       cy.get(':nth-child(3) > .submenu-link').click();
 
       
-        cy.get('#firstNameNp').type('रुपेश');
-        cy.get('#lastNameNp').type('प्रधान');
-        cy.get('#firstName').type('rupesh');
-        cy.get('#lastName').type('pradhan');
+        cy.get('#firstNameNp').type(faker.person.firstName());
+        cy.get('#lastNameNp').type(faker.person.lastName());
+        cy.get('#firstName').type(faker.person.firstName());
+        cy.get('#lastName').type(faker.person.lastName());
        cy.get('#gender').type('m');
         cy.get('#religion').select('हिन्दु');
         cy.get('.col-4 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20401111{enter}');
         cy.get('#district_address0').click();
-        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('काठमाडौँ');
+        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('ललितपुर');
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(3)').click({force:true});
         cy.get('#localBody_address0').click();
-        cy.get(':nth-child(2) > tb-search-field > .form-control-icon > .header-filter').type('काठ');
+        cy.get(':nth-child(2) > tb-search-field > .form-control-icon > .header-filter').type('लल');
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(2)').click();
-        cy.get('app-address-module.ng-star-inserted > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
-        cy.get('.select2-search__field').type('3{enter}');
-        cy.get('#citizenshipCountryNameNp').click();
+        cy.wait(2000)
+     cy.get('#wardNumber_address0').select('5'); // selects ५
+
+
+
+     cy.get('#citizenshipCountryNameNp').click();
         cy.get(':nth-child(2) > tb-search-field > .form-control-icon > .header-filter').type('ऑस्ट्रेलिया');
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(2)').click();
@@ -42,10 +49,11 @@ describe('Login Test', () => {
         cy.get('#passportIssuingAuthority').type('embassy');
         cy.get(':nth-child(7) > .col-8 > .form-group > .formValidationDiv > app-date-picker > .justify-content-between > .input-icon-BS > .form-control').type('20831212{enter}');
         cy.get('#nrnForeignAddress').type('australia');
-        cy.get('#firstNameNp_0').type('राम');
-        cy.get('#lastNameNp_0').type('शाक्य');
-        cy.get('#firstName_0').type('ram');
-        cy.get('#lastName_0').type('shakya');
+
+        cy.get('#firstNameNp_0').type(faker.person.firstName('male'));
+        cy.get('#lastNameNp_0').type(faker.person.lastName());
+        cy.get('#firstName_0').type(faker.person.firstName('male'));
+        cy.get('#lastName_0').type(faker.person.lastName());
         cy.get('#citizenshipNo_0').type('3424');
         cy.get('#citizenshipType_0').select('वंशज');
         cy.get('#nrnIssuedDistrictIdentifyBtn > .ic-search').click();
@@ -53,20 +61,21 @@ describe('Login Test', () => {
         cy.wait(2000)
         cy.get('tr.ng-star-inserted > :nth-child(4)').click();
         cy.get('#district_family0').click();
-        cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
+        cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('lalitpur');
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(4) > .ng-star-inserted').click();
         cy.get('#localBody_family0').click();
-        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
+        cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('lalitpur');
         cy.wait(2000);
         cy.get('tr.ng-star-inserted > :nth-child(3) > .ng-star-inserted').click();
-        cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
-        cy.get('.select2-search__field').type('3{enter}');
+        cy.wait(2000)
+        cy.get('#wardNumber_family0').select('5'); // selects ५
+
         cy.get('.nav > :nth-child(2)').click()
-        cy.get('#firstNameNp_1').type('सिता');
-        cy.get('#lastNameNp_1').type('शाक्य');
-        cy.get('#firstName_1').type('sita');
-        cy.get('#lastName_1').type('shakya');
+        cy.get('#firstNameNp_1').type(faker.person.firstName('female'));
+        cy.get('#lastNameNp_1').type(faker.person.lastName());
+        cy.get('#firstName_1').type(faker.person.firstName('female'));
+        cy.get('#lastName_1').type(faker.person.lastName());
         cy.get('#citizenshipNo_1').type('4512');
         cy.get('#citizenshipType_1').select('वंशज');
         cy.get('#district_family1').click();
@@ -75,10 +84,12 @@ describe('Login Test', () => {
         cy.get('tr.ng-star-inserted > :nth-child(4)').click();
         cy.get('#localBody_family1').click();
         cy.get(':nth-child(6) > :nth-child(3)').click();
-        cy.get('#select2-wardNumber_family1-container').type('3{enter}');
-        cy.get('#officeBtn > .ic-search').click();
+        cy.get('#wardNumber_family1').select('5'); // selects ५
+
+     cy.get('#officeBtn > .ic-search').click();
         cy.get(':nth-child(2) > tb-search-field > .form-control-icon > .header-filter').type('३');
         cy.get('tbody > :nth-child(2) > :nth-child(2)').click()
+
         cy.get('#recommendFirstNameNp').type('shiv');
         cy.get('#recommendLastNameNp').type('mahat');
         cy.get('#designationId > .ic-search').click();

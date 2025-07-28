@@ -2,9 +2,10 @@
 
 function login() {
     cy.visit('https://ccimsinternal.infodev.com.np/')
-    cy.get('input[type="username"]').type('rabin');
-    cy.get('input[type="password"]').type('Test@123');
+    cy.get('input[type="username"]').type('leeza');
+    cy.get('input[type="password"]').type('User@123');
     cy.get('.btn').click()
+    cy.get('.active > .fs-5').click()
     // cy.contains('बबरमहल').click()
     cy.get('.ic-approval').click()
     cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/approvals');
@@ -62,7 +63,7 @@ it('Approval of Matrimonial Adoption', () => {
 
 
 
-it('Approval of Hereditary', () => {
+it.only('Approval of Hereditary', () => {
     login()
     cy.get('[title="वंशज"]').click()
     cy.get('.ic-eye-true').eq(0).click()

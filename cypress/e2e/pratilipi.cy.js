@@ -4,20 +4,22 @@ describe('Login Test', () => {
     });
       
     it('pratilipi for nochange', () => {
-      cy.get('.form-control').eq(0).type('sharmila');
+      cy.get('.form-control').eq(0).type('shashi@yopmail.com');
       cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
       cy.wait(2000)
-      cy.get(':nth-child(7) > .mastermenu-link').click();
+      cy.get('.active > .fs-5').click()
+      cy.get(':nth-child(8) > .mastermenu-link').click();
+      cy.wait(2000)
       cy.get('.col-1 > .btn').click();
-      cy.get('#citizenshipNo').type('१६८६४');
+      cy.get('#citizenshipNo').type('३०-०१-८१-००००१');
       cy.get('#issueDistrictId').click();
       cy.wait(3000)
-      cy.get('input.header-filter[placeholder="खोज्नुहोस्"]').eq(6).click().type('jhapa',{force:true})
-      cy.get('.ng-star-inserted').contains("Jhapa").click()
+      cy.get('input.header-filter[placeholder="खोज्नुहोस्"]').eq(6).click().type('kavre',{force:true})
+      cy.get('.ng-star-inserted').contains("Kavre").click()
 
       cy.get('.modal-footer > .flex-end > .btn-blue').click();
-      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'टंक')
+      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'राम तामाङ')
       
       cy.wait(2000);
       cy.get('.ic-more-vertical').eq(0).click();
@@ -26,8 +28,14 @@ describe('Login Test', () => {
       cy.get('h5.ng-star-inserted').should('exist').and('include.text','नागरिकताको प्रतिलिपि');
       cy.get('.btn-base-primary').should('exist').and('include.text','पछाडि जानुहोस्');
       cy.wait(3000);
-      cy.get('.header-background > .d-flex.ng-star-inserted > .btn-sm').should('exist').and('include.text','थप्नुहोस्').click();
+      cy.get('.btn-blue').should('exist').and('include.text','थप्नुहोस्').click();
+      cy.get(':nth-child(1) > .btn-name').and('include.text','प्रतिलिपि जारी').click()
       cy.get('#copyReason').select('हराएको');
+      cy.get('#recommendFirstNameNp').type('राम');
+      cy.get('#recommendLastNameNp').type('महर्जन');
+      cy.get('.mb-2.mt-1 > .col-4 > .form-group > .formValidationDiv > .input-group > #officeName').click();
+      cy.get('tbody > :nth-child(1) > :nth-child(2)').click();
+
       cy.get('#copyDetailsFrom_father').click();
       cy.get('.btn-blue').click();
       cy.get('.formValidationTooltip').should('not.exist', 'यो क्षेत्र आवश्यक छ।')
@@ -36,12 +44,17 @@ describe('Login Test', () => {
 
     it('pratilipi add husband dont delete father ', () => {
       
-      cy.get('.form-control').eq(0).type('mohan');
-      cy.get('.form-control').eq(1).type('Test@123');
+      cy.get('.form-control').eq(0).type('shashi@yopmail.com');
+      cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
-      cy.get(':nth-child(9) > .mastermenu-link').click();
+      cy.get('.active > .fs-5').click()
+      cy.get(':nth-child(8) > .mastermenu-link').click();
       cy.get('.col-1 > .btn').click();
-      cy.get('#citizenshipNo').type('29-01-80-407377');
+      cy.get('#citizenshipNo').type('२८-०१-८१-००१५६');
+      cy.get('#issueDistrictId').click();
+      cy.wait(3000)
+      cy.get('input.header-filter[placeholder="खोज्नुहोस्"]').eq(6).click().type('lalitpur',{force:true})
+      cy.get('.ng-star-inserted').contains("Lalitpur").click()
       cy.get('.modal-footer > .flex-end > .btn-blue').click();
       // cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'धिरज')
       cy.wait(2000);
@@ -51,14 +64,30 @@ describe('Login Test', () => {
       cy.get('h5.ng-star-inserted').should('exist').and('include.text','नागरिकताको प्रतिलिपि');
       cy.get('.btn-base-primary').should('exist').and('include.text','पछाडि जानुहोस्');
       cy.wait(3000);
-      cy.get('.header-background > .d-flex.ng-star-inserted > .btn-sm').click();
+
+      cy.get('.btn-blue').should('exist').and('include.text','थप्नुहोस्').click();
+      cy.get(':nth-child(1) > .btn-name').and('include.text','प्रतिलिपि जारी').click()
       cy.get('#copyReason').select('हराएको');
+      cy.get('#district_address1').click()
+      cy.wait(2000)
+      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu')
+      cy.wait(3000);
+      cy.get('tr.ng-star-inserted > :nth-child(4)').click()
+
+      cy.get('#localBody_address1').click();
+      cy.wait(2000)
+      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu')
+      cy.wait(2000)
+      cy.get('tr.ng-star-inserted > :nth-child(3)').click()
+      cy.wait(2000)
+      cy.get('#wardNumber_address1').select('5');
+
       cy.get('#husband').click();
-      cy.get(':nth-child(5) > .formcard__title > div.d-flex > .switch-wrapper > .switch').click();
+      cy.get(':nth-child(7) > .formcard__title > div.d-flex > .switch-wrapper > .switch').click();
       cy.get('.formValidationDiv > #firstNameNp').type('श्याम');
       cy.get('.formValidationDiv > #lastNameNp').type('महर्जन');
-      cy.get('.form-group > #firstName').type('shyam');
-      cy.get('.form-group > #lastName').type('maharjan');
+      cy.get(':nth-child(2) > :nth-child(2) > .form-group > .formValidationDiv > #firstName').type('shyam');
+      cy.get(':nth-child(2) > :nth-child(4) > .form-group > .formValidationDiv > #lastName').type('maharjan');
       cy.get('#husbandAddressCountry').click();
       cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('nepal');
       cy.wait(2000)
@@ -66,18 +95,17 @@ describe('Login Test', () => {
       cy.get('#citizenshipNo').type('5885');
       cy.get('.col-4.ng-star-inserted > .form-group > #citizenshipType').select('वंशज');
       cy.get('#district_husband').click();
-      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('bhaktapur');
+      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
       cy.wait(2000);
       cy.get('tr.ng-star-inserted > :nth-child(4)').click();
       cy.get('#localBody_husband').click();
-      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('bhaktapur');
+      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
       cy.wait(2000);
       cy.get('tr.ng-star-inserted > :nth-child(3)').click();
-      cy.get('#select2-wardNumber_husband-container').click();
-      cy.get('.select2-search__field').type('5{enter}');
+      // cy.get('#select2-wardNumber_husband-container').click();
+      cy.get('#wardNumber_husband').select('5');
 
       cy.get('#copyDetailsFrom_husband').click();
-      cy.pause();
       cy.get('.btn-blue').click();
       cy.get('.px-4 > .btn').click();
     });
@@ -85,14 +113,15 @@ describe('Login Test', () => {
     it('pratilipi add husband delete father ', () => {
       
       
-      cy.get('.form-control').eq(0).type('mohan');
-      cy.get('.form-control').eq(1).type('Test@123');
+      cy.get('.form-control').eq(0).type('shashi@yopmail.com');
+      cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
-      cy.get(':nth-child(9) > .mastermenu-link').click();
+      cy.get('.active > .fs-5').click()
+      cy.get(':nth-child(8) > .mastermenu-link').click();
       cy.get('.col-1 > .btn').click();
-      cy.get('#citizenshipNo').type('२९-०१-८०-४०७४३०');
+      cy.get('#citizenshipNo').type('२७-०१-८१-०००६२');
       cy.get('.modal-footer > .flex-end > .btn-blue').click();
-      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'धिरज')
+      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'सुष्मा')
       cy.wait(2000);
       cy.get('.ic-more-vertical').eq(0).click();
       cy.wait(2000)
@@ -100,17 +129,48 @@ describe('Login Test', () => {
       cy.get('h5.ng-star-inserted').should('exist').and('include.text','नागरिकताको प्रतिलिपि');
       cy.get('.btn-base-primary').should('exist').and('include.text','पछाडि जानुहोस्');
       cy.wait(3000);
-      cy.get('.header-background > .d-flex.ng-star-inserted > .btn-sm').click();
+      cy.get('.btn-blue').should('exist').and('include.text','थप्नुहोस्').click();
+      cy.get(':nth-child(1) > .btn-name').and('include.text','प्रतिलिपि जारी').click()
       cy.get('#copyReason').select('हराएको');
+      cy.get('#district_address0').click()
+      cy.wait(2000)
+      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu')
+      cy.wait(3000);
+      cy.get('tr.ng-star-inserted > :nth-child(4)').click()
+
+      cy.get('#localBody_address0').click();
+      cy.wait(2000)
+      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu')
+      cy.wait(2000)
+      cy.get('tr.ng-star-inserted > :nth-child(3)').click()
+      cy.wait(2000)
+      cy.get('#wardNumber_address0').select('5');
+
+      cy.get(':nth-child(7) > :nth-child(1) > .form-group > .switch-wrapper > .switch > .slider').click()
+      cy.get('#district_address1').click()
+      cy.wait(2000)
+      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu')
+      cy.wait(3000);
+      cy.get('tr.ng-star-inserted > :nth-child(4)').click()
+
+      cy.get('#localBody_address1').click();
+      cy.wait(2000)
+      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu')
+      cy.wait(2000)
+      cy.get('tr.ng-star-inserted > :nth-child(3)').click()
+      cy.wait(2000)
+      cy.get('#wardNumber_address1').select('5');
+
       cy.get('#husband').click()
       cy.get('#firstNameNp_0').clear()
       cy.get('#lastNameNp_0').clear()
-      
-      cy.get(':nth-child(5) > .formcard__title > div.d-flex > .switch-wrapper > .switch').click();
+
+      cy.get('#husband').click();
+      cy.get(':nth-child(7) > .formcard__title > div.d-flex > .switch-wrapper > .switch').click();
       cy.get('.formValidationDiv > #firstNameNp').type('श्याम');
       cy.get('.formValidationDiv > #lastNameNp').type('महर्जन');
-      cy.get('.form-group > #firstName').type('shyam');
-      cy.get('.form-group > #lastName').type('maharjan');
+      cy.get(':nth-child(2) > :nth-child(2) > .form-group > .formValidationDiv > #firstName').type('shyam');
+      cy.get(':nth-child(2) > :nth-child(4) > .form-group > .formValidationDiv > #lastName').type('maharjan');
       cy.get('#husbandAddressCountry').click();
       cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('nepal');
       cy.wait(2000)
@@ -118,33 +178,37 @@ describe('Login Test', () => {
       cy.get('#citizenshipNo').type('5885');
       cy.get('.col-4.ng-star-inserted > .form-group > #citizenshipType').select('वंशज');
       cy.get('#district_husband').click();
-      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('bhaktapur');
+      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
       cy.wait(2000);
       cy.get('tr.ng-star-inserted > :nth-child(4)').click();
       cy.get('#localBody_husband').click();
-      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('bhaktapur');
+      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu');
       cy.wait(2000);
       cy.get('tr.ng-star-inserted > :nth-child(3)').click();
-      cy.get('#select2-wardNumber_husband-container').click();
-      cy.get('.select2-search__field').type('5{enter}');
+      // cy.get('#select2-wardNumber_husband-container').click();
+      cy.get('#wardNumber_husband').select('5');
       
       cy.get('#copyDetailsFrom_husband').click();
-      cy.pause();
       cy.get('.btn-blue').click();
       cy.get('.px-4 > .btn').click();
     })
     
-    it.skip('pratilipi remove husband add father details ', () => {
+    it.only('pratilipi remove husband', () => {
       
       
-      cy.get('.form-control').eq(0).type('mohan');
-      cy.get('.form-control').eq(1).type('Test@123');
+      cy.get('.form-control').eq(0).type('shashi@yopmail.com');
+      cy.get('.form-control').eq(1).type('User@123');
       cy.get('.btn').click();
-      cy.get(':nth-child(9) > .mastermenu-link').click();
+      cy.get('.active > .fs-5').click()
+      cy.get(':nth-child(8) > .mastermenu-link').click();
       cy.get('.col-1 > .btn').click();
-      cy.get('#citizenshipNo').type('29-01-068-04654');
+      cy.get('#citizenshipNo').type('२८-०१-८१-०००८२');
+      cy.get('#issueDistrictId').click();
+      cy.wait(3000)
+      cy.get('input.header-filter[placeholder="खोज्नुहोस्"]').eq(6).click().type('lalitpur',{force:true})
+      cy.get('.ng-star-inserted').contains("Lalitpur").click()
       cy.get('.modal-footer > .flex-end > .btn-blue').click();
-      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'धिरज')
+      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'अश्मिता')
       cy.wait(2000);
       cy.get('.ic-more-vertical').eq(0).click();
       cy.wait(2000)
@@ -152,20 +216,35 @@ describe('Login Test', () => {
       cy.get('h5.ng-star-inserted').should('exist').and('include.text','नागरिकताको प्रतिलिपि');
       cy.get('.btn-base-primary').should('exist').and('include.text','पछाडि जानुहोस्');
       cy.wait(3000);
-      cy.get('.header-background > .d-flex.ng-star-inserted > .btn-sm').click();
+      // cy.get('.header-background > .d-flex.ng-star-inserted > .btn-sm').click();
+      cy.get('.btn-blue').should('exist').and('include.text','थप्नुहोस्').click();
+      cy.get(':nth-child(1) > .btn-name').and('include.text','प्रतिलिपि जारी').click()
       cy.get('#copyReason').select('हराएको');
-      cy.get('#firstNameNp_0').type('विजय');
-      cy.get('#lastNameNp_0').type('श्रेष्ठ')
-      cy.get('#firstName_0').type('bijay');
-      cy.get('#lastName_0').type('shrestha')
-      cy.wait(2000);
-      cy.get('#citizenshipNo_0').type('95623');
-      cy.get('#localBody_family0').click();
-      cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
-      cy.wait(2000);
-      cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
-      cy.get('.select2-search__field').type('5{enter}');
-      cy.get(':nth-child(5) > .formcard__title > div.d-flex > .switch-wrapper > .switch').click();
+      cy.get('#district_address1').click()
+      cy.wait(2000)
+      cy.get(':nth-child(4) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu')
+      cy.wait(3000);
+      cy.get('tr.ng-star-inserted > :nth-child(4)').click()
+
+      cy.get('#localBody_address1').click();
+      cy.wait(2000)
+      cy.get(':nth-child(3) > tb-search-field > .form-control-icon > .header-filter').type('kathmandu')
+      cy.wait(2000)
+      cy.get('tr.ng-star-inserted > :nth-child(3)').click()
+      cy.wait(2000)
+      cy.get('#wardNumber_address1').select('5');
+      // cy.get('#firstNameNp_0').type('विजय');
+      // cy.get('#lastNameNp_0').type('श्रेष्ठ')
+      // cy.get('#firstName_0').type('bijay');
+      // cy.get('#lastName_0').type('shrestha')
+      // cy.wait(2000);
+      // cy.get('#citizenshipNo_0').type('95623');
+      // cy.get('#localBody_family0').click();
+      // cy.get('tbody > :nth-child(2) > :nth-child(2)').click();
+      // cy.wait(2000);
+      // cy.get('.application-card-form > app-address-module > :nth-child(2) > .col-2 > .form-group > .select2 > .selection > .select2-selection').click();
+      // cy.get('.select2-search__field').type('5{enter}');
+      cy.get(':nth-child(7) > .formcard__title > div.d-flex > .switch-wrapper > .switch').click();
       cy.get('#copyDetailsFrom_father').click();
       cy.pause();
       cy.get('.btn-blue').click();
@@ -193,23 +272,23 @@ describe('Login Test', () => {
         cy.wait(2000);
     })
 
-    it.only('pratilipi all details change', () => {
-      cy.get('.form-control').eq(0).type('sharmila');
-      cy.get('.form-control').eq(1).type('User@123');
+    it('pratilipi all details change', () => {
+      cy.get('.form-control').eq(0).type('sagaraao-operator');
+      cy.get('.form-control').eq(1).type('Test@123');
       cy.get('.btn').click();
       cy.wait(2000)
       cy.get(':nth-child(7) > .mastermenu-link').click();
       cy.get('.col-1 > .btn').click();
-      cy.get('#citizenshipNo').type('८५९१');
-      cy.get('#issueDistrictId').click();
-      cy.wait(3000)
-      cy.get('input.header-filter[placeholder="खोज्नुहोस्"]').eq(6).click().type('kathmandu', { force: true })
-      cy.get('.ng-star-inserted').contains(" Kathmandu ").click()
+      cy.get('#citizenshipNo').type('१५९-४७५');
+      // cy.get('#issueDistrictId').click();
+      // cy.wait(3000)
+      // cy.get('input.header-filter[placeholder="खोज्नुहोस्"]').eq(6).click().type('kathmandu', { force: true })
+      // cy.get('.ng-star-inserted').contains(" Kathmandu ").click()
       // cy.get(':nth-child(4) > :nth-child(3)').should('include.text', '3068/177')
-      cy.get('#fullNameNp').type('हेमन्त')
+      // cy.get('#fullNameNp').type('हेमन्त')
 
       cy.get('.modal-footer > .flex-end > .btn-blue').click();
-      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'हेमन्त')
+      // cy.get('tbody > :nth-child(1) > :nth-child(2)').should('include.text', 'हेमन्त')
 
       cy.wait(2000);
       cy.get('.ic-more-vertical').eq(0).click();

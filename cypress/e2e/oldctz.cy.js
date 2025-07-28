@@ -3,8 +3,8 @@ describe('old ctz', () => {
 
     function operatorlogin() {
         cy.visit('https://ccimsinternal.infodev.com.np/');
-        cy.get('.form-control').eq(0).type('sharmila');
-        cy.get('.form-control').eq(1).type('User@123');
+        cy.get('.form-control').eq(0).type('sagaraao-operator');
+        cy.get('.form-control').eq(1).type('Test@123');
         cy.get('.btn').click();
         cy.url().should('eq', 'https://ccimsinternal.infodev.com.np/#/featured/dashboard')
         cy.wait(2000);
